@@ -1,0 +1,286 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: #181818 url('./images/ZE3D.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  font-family: 'Heebo', 'Segoe UI', 'Arial', sans-serif;
+  letter-spacing: 0.3px;
+  min-height: 100vh;
+}
+
+/* שכבת עמעום מעל הרקע */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);  /* עמעום כהה יותר */
+  z-index: 0;
+}
+
+/* כל התוכן מעל העמעום */
+.name, h4, .container, .card, .caption, .logo, .logo img {
+  position: relative;
+  z-index: 1;
+}
+    
+.name {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    font-family: 'Heebo', sans-serif;
+    color: white;
+
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #e0e0e0;
+    text-shadow: 0 1px 4px #000;
+    font-family: 'Heebo', sans-serif;
+}
+
+
+
+.header-hr {
+    border: none;                   /* מבטל את ברירת המחדל */
+    height: 3px;                    /* העובי של הקו */
+    background-color: #565555;      /* צבע אדום */
+    margin: 10px 0;                 /* רווחים */
+    border-radius: 2px;      /* פינות מעוגלות (לא חובה) */
+}
+
+    
+.container {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+    padding: 0 32px 32px 32px;
+    margin-left: 0;
+}
+
+.card {
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    border: none;
+    padding: 24px 0 18px 0;
+    transition: box-shadow 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: fadeInUp 1.2s forwards;
+    animation-delay: 0.3s;
+}
+.card:hover {
+    box-shadow: 0 12px 40px rgba(212,175,55,0.18), 0 4px 16px rgba(0,0,0,0.22);
+    transform: translateY(-10px) scale(1.04);
+}
+
+/* אפקט לתמונה */
+.TLV, .THAI, .House, .IG, .kai, .Shuffleboard, .Sink, .ART {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.18);
+    background-size: cover;
+    background-position: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+/* אפקט לתמונה בהובר */
+.TLV:hover, .THAI:hover, .House:hover, .IG:hover, .kai:hover, .Shuffleboard:hover, .Sink:hover, .ART:hover {
+    box-shadow: 0 12px 40px rgba(212,175,55,0.18), 0 4px 16px rgba(0,0,0,0.22);
+    transform: scale(1.06);
+}
+
+.TLV {
+    background-image: url("./images/TLV.jpeg");
+    /* שאר העיצוב אם צריך */
+}
+
+.THAI {
+    background-image: url("./images/thai.png");
+    /* שאר העיצוב אם צריך */
+}
+.House {
+    background-image: url("./images/House.jpg");
+    /* שאר העיצוב אם צריך */
+}
+.IG {
+    background-image: url("./images/IG.jpg");
+    /* שאר העיצוב אם צריך */
+}
+.kai {
+    background-image: url("./images/kai.png");
+}
+.Shuffleboard {
+    background-image: url("./images/Shuffleboard.jpg");
+}
+.Sink {
+    background-image: url("./images/Sink.jpg");
+}
+.ART {
+    background-image: url("./images/ART.png");
+}
+
+.caption {
+    margin-top: 22px;
+    font-size: 18px;
+    font-weight: 300; /* היה 600 */
+    text-shadow: 0 2px 10px #000;
+    font-family: 'Playfair Display', serif;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.logo img {
+  width: 1.2em;    /* גובה יחסי לטקסט */
+  height: 1.2em;
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+  vertical-align: middle;
+  margin-bottom: 2px; /* יישור עדין */
+}
+
+.logo img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  filter: brightness(1.08);
+}
+
+/* שנה את הלוגו בתחתית לשורה אחת עם הטקסט */
+.logo-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+  margin-left: 8px;
+  margin-top: 0;
+}
+
+.logo-inline img {
+  height: 2em; /* גודל מוגדל */
+  width: 2em;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+  vertical-align: middle;
+}
+
+.logo-inline img:hover,
+.logo img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 2px 16px rgba(211, 209, 209, 0.35);
+  filter: brightness(1.25) drop-shadow(0 0 8px #ffd700);
+  border: 2px solid #555500;
+}
+
+/* אפקטי כניסה */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.TLV:hover + .caption,
+.THAI:hover + .caption,
+.House:hover + .caption,
+.IG:hover + .caption,
+.kai:hover + .caption,
+.Shuffleboard:hover + .caption,
+.Sink:hover + .caption,
+.ART:hover + .caption {
+    font-size: 28px;
+    transform: scale(1.08);
+    transition: font-size 0.3s, transform 0.3s;
+}
+
+.footer-hr {
+    border: none;
+    height: 3px; /* עבה יותר */
+    background-color: #565555; /* צבע זהב בולט */
+    margin: 40px 0 18px 0; /* רווחים גדולים יותר */
+    border-radius: 3px;
+    text-align: center;
+}
+
+footer {
+  background: rgba(30,30,30,0.85);
+  box-shadow: 0 2px 16px rgba(255,215,0,0.18);
+  border-radius: 18px;
+  padding: 28px 0 24px 0;
+  margin: 0 0 24px 0;
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column; /* שים את הכותרת מעל הסמלים */
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.contact {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Heebo', sans-serif;
+  color: #ffffff;
+  white-space: nowrap;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px #000;
+  line-height: 1.2;
+}
+
+
+.menu-card {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  width: 120px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 30;
+}
+
+.menu-img {
+  width: 50px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  display: block;
+  cursor: pointer;
+}
+
+
+.menu-img:hover {
+    cursor: pointer;
+    transform: scale(1.18) rotate(-8deg);
+    box-shadow: 0 4px 24px rgba(255,215,0,0.25), 0 2px 8px rgba(0,0,0,0.18);
+    filter: brightness(1.18) drop-shadow(0 0 8px #c9c9c9);
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
