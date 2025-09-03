@@ -72,7 +72,8 @@ function nextSequence() {
   var randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
 
-    showSequence();
+  showSequence();
+
 }
 
 function showSequence() {
@@ -85,7 +86,7 @@ function showSequence() {
     if (i >= gamePattern.length) {
       clearInterval(interval);
     }
-  }, 600); // מרווח בין הצבעים (אפשר לשנות לפי מהירות רצויה)
+  }, 600); 
 }
 
 
